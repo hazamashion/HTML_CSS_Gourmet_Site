@@ -92,13 +92,29 @@ hr {
 input, select {
     vertical-align:middle;
 }
-/*自分の記述*/
+/*ここから自分の記述*/
+body {
+   margin: 0;
+   padding: 0;
+   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   background-color: #e6e6e6;
+}
+body {
+    min-width: 1200px;
+    background-color: white;
+}
 img {
     max-width: 100%;
 }
-.header_position {
+/*ヘッダーの設定*/
+.header {
+    width: 100%;
     position: relative;
+    display: flex;
 }
+/*.header_position {*/
+/*    position: relative;*/
+/*}*/
 .top_background-image {
     width: 100%;
     height: 450px;
@@ -110,19 +126,26 @@ img {
     left: 0;
     margin-top: 20px;
 }
+.flex {
+    display: flex;
+}
 .top_nav {
     position: absolute;
     top: 0;
     right: 0;
-    margin-right: 40px;
+    margin-right: 30px;
 }
 .top_nav a {
     text-decoration: none;
     color: white;
+    margin: 0px 15px 15px 0px;
 }
-.top_logo,.top_nav {
-    vertical-align: middle;
+.top_nav li {
+    float: left;
 }
+/*.top_alignment {*/
+/*    align-items: center;*/
+/*}*/
 .top_title {
     position: absolute;
     top: 0;
@@ -131,11 +154,31 @@ img {
     left: 0;
     margin: auto;
 }
-header img:last-child{
+/*検索フォーム*/
+.serch {
     position: absolute;
     top: 320px;
-    left: 800px;
+    left: 500px;
+    background-color: rgba(255,255,255,0.5)/*半透明*/
 }
+.serch form {
+    float: left;
+    margin: 10px 0px;
+}
+.serch input[type="text"] {
+    margin: 0;
+    
+}
+.serch input[type="submit"] {
+    background-color: red;
+}
+.serch img {
+    position: absolute;
+    left: 450px;
+    color: black;
+    margin: 10px;
+}
+/*メインの記述*/
 .main {
     margin: 40px;
 }

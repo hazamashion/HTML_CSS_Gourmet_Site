@@ -6,23 +6,31 @@
     <link rel="stylesheet" href="gourmet_camp.css">
 </head>
 <body>
-    <header>
-        <!--検証からウィンドウサイズを変更して表示したらヘッダーの背景画像が左に寄ってたからおそらくその設定からできてない。-->
-        <div class="header_position">
+    <header class="flex">
             <img class="top_background-image" src="images/top.jpg">
-            <img class="top_logo" src="images/logo.png">
-            <nav class="top_nav">
-                <ul>
-                    <li><a href="#">TOP</a></li>
-                    <li><a href="#">予約一覧</a></li>
-                    <li><a href="#">いいねリスト</a></li>
-                    <li><a href="#">マイページ</a></li>
-                    <li><a href="#">サービス規約</a></li>
-                </ul>
-            </nav>
+            <div class="top_alignment"><!--ロゴとナビの垂直中央揃え用に作成-->
+                <img class="top_logo" src="images/logo.png"><!--インライン要素-->
+            
+                <nav class="top_nav">
+                    <ul>
+                        <li><a href="#">TOP</a></li>
+                        <li><a href="#">予約一覧</a></li>
+                        <li><a href="#">いいねリスト</a></li>
+                        <li><a href="#">マイページ</a></li>
+                        <li><a href="#">サービス規約</a></li>
+                    </ul>
+                </nav>
+            </div>
             <img class="top_title" src="images/top_title.png">
-            <img src="images/icon07.png">
-        </div>
+            <div class="serch"><!--検索フォーム-->
+                <form>
+                    <label for="area_input">お店を探す</label>
+                    <input type="text" name="area" id="area_input" value="" />
+                    <input type="text" name="keyword" id="keyword_input" value="" />
+                    <input type="submit" name="" id="" value="検索" />
+                </form>
+                <img src="images/icon07.png" alt="magnifying-glass">
+            </div>
     </header>
     <div class="container flex">
         <main>
