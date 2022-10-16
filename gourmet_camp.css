@@ -94,45 +94,33 @@ input, select {
 }
 /*ここから自分の記述*/
 body {
-   margin: 0;
-   padding: 0;
-   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-   background-color: #e6e6e6;
-}
-body {
-    min-width: 1200px;
+    display: block;
     background-color: white;
+    min-width: 1200px;
 }
-img {
-    max-width: 100%;
+.centering_content { /*横幅1200px中央寄せクラス*/
+    justify-content: center;
 }
+
 /*ヘッダーの設定*/
-.header {
+header {
     width: 100%;
-    position: relative;
-    display: flex;
 }
-/*.header_position {*/
-/*    position: relative;*/
-/*}*/
-.top_background-image {
-    width: 100%;
-    height: 450px;
-    vertical-align: bottom
+.header_content {
+    background-image: url(images/top.jpg);
+    background-size: cover;
+    padding-bottom: 50px;
+}
+.top_alignment {
+    display: flex;
+    justify-content: space-between;/*両端に子要素を寄せる*/
+    align-items: center;/*垂直方向の整列*/
 }
 .top_logo {
-    position: absolute;
-    top: 0;
-    left: 0;
     margin-top: 20px;
 }
-.flex {
-    display: flex;
-}
 .top_nav {
-    position: absolute;
-    top: 0;
-    right: 0;
+    display: flex;
     margin-right: 30px;
 }
 .top_nav a {
@@ -143,42 +131,135 @@ img {
 .top_nav li {
     float: left;
 }
-/*.top_alignment {*/
-/*    align-items: center;*/
-/*}*/
-.top_title {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+.top_copy {
+    display: block;/*img要素に直接作ったクラスやからインライン要素。つまり、左に寄るからブロックにしてautoにすると上下左右中央になる。*/
+    align-items: center;
     margin: auto;
+    padding-bottom: 10px;
 }
 /*検索フォーム*/
 .serch {
-    position: absolute;
-    top: 320px;
-    left: 500px;
-    background-color: rgba(255,255,255,0.5)/*半透明*/
+    display: flex;
+    background-color: rgba(255,255,255,0.5)
 }
 .serch form {
-    float: left;
-    margin: 10px 0px;
+    margin: 0 auto;
+    padding: 10px;
 }
 .serch input[type="text"] {
     margin: 0;
+    font-size: 8px;
+    color: gray;
+    padding: 5px;
     
 }
 .serch input[type="submit"] {
     background-color: red;
-}
-.serch img {
-    position: absolute;
-    left: 450px;
-    color: black;
-    margin: 10px;
+    color: white;
+    padding-left: 30px;/*画像を入れるスペース*/
+    float: left;
 }
 /*メインの記述*/
-.main {
-    margin: 40px;
+.container {
+    display: flex;
+}
+h2 {
+    font-size: 24px;
+}
+.recomended_area,.hot_spot,.genre,.condition,.writer_recommendation,.user_review {
+    width: 800px;
+    margin: 10px 50px 0px 40px;
+}
+/*おすすめのエリア*/
+.recomended_area a {
+    display: inline-block;
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    border: solid 1px #80808052;
+    margin: 5px;/*左右5pxずつマージンで計10pxの余白*/
+    padding-top: 5px;
+}
+/*ホットなスポット*/
+.town a {
+    text-decoration: none;
+    color: black;
+}
+.town a:before {/*擬似要素"要素の直前に対する指定*/
+    content: ">";
+    color: orange;
+}
+/*ジャンルで選ぶ*/
+.genre_buttun {
+    display: flex;
+}
+.genre_buttun div {
+    margin: 10px 10px 0px 0px;
+}
+.genre_buttun a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    text-align: center;
+    border: solid 1px #80808052;
+    
+}
+/*こだわりで選ぶ*/
+.condition_buttun {
+    display: flex;
+    flex-wrap: wrap;
+}
+.condition_buttun a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    background-color: white;
+    padding: 10px;
+    border: solid 1px #80808052;
+    margin: 10px 10px 0px 0px;
+}
+/*右側のコンテンツ*/
+.right_bar {
+    width: 270px;
+    margin-right: 40px;
+}
+.user_infomation-block {
+    background-color: #FFFCF3;
+    border: 1px solid gray;
+    margin-top: 20px
+}
+.user_infomation {
+    background-color: white;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.user_profile {
+    width: 130px;
+    float: left;
+}
+.user_profile p:first-child {
+    font-size: 18px;
+    font-weight: bold;
+}
+.user_point {
+    display: flex;
+    width: 228px;
+    padding: 10px;
+    border-top: solid 1px gray;
+    justify-content: space-between;
+    align-items: center;
+}
+.user_rank {
+    display: flex;
+    width: 228px;
+    padding: 10px;
+    border-top: solid 1px gray;
+    justify-content: space-between;
+    align-items: center;
+}
+.banner img {
+    margin-top: 20px;
 }
