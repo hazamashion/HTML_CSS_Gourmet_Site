@@ -98,7 +98,7 @@ body {
     background-color: white;
     min-width: 1200px;
 }
-.centering_content { /*横幅1200px中央寄せクラス*/
+.centering_content { /*中央寄せクラス*/
     justify-content: center;
 }
 
@@ -106,27 +106,35 @@ body {
 header {
     width: 100%;
 }
-.header_content {
+.header_background {/*ヘッダーのコンテンツを1200pxに収めるために新たに追加した。背景画像がウィンドウサイズいっぱいに表示される。*/
     background-image: url(images/top.jpg);
     background-size: cover;
-    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+.header_content {
+    padding: 0px 0px 40px;
+    display: flex;
+    justify-content: center;
+}
+.fixing_header {
+    width: 1200px;
 }
 .top_alignment {
     display: flex;
+    margin: 20px 40px 0px;
     justify-content: space-between;/*両端に子要素を寄せる*/
     align-items: center;/*垂直方向の整列*/
 }
 .top_logo {
-    margin-top: 20px;
 }
 .top_nav {
-    display: flex;
-    margin-right: 30px;
+    display: flex
 }
 .top_nav a {
     text-decoration: none;
     color: white;
-    margin: 0px 15px 15px 0px;
+    margin-left: 30px;
 }
 .top_nav li {
     float: left;
@@ -139,53 +147,125 @@ header {
 }
 /*検索フォーム*/
 .serch {
+    width: 800px;
     display: flex;
-    background-color: rgba(255,255,255,0.5)
+    margin: 0 auto;
+    background-color: rgba(255,255,255,0.8)
 }
 .serch form {
+    display: flex;
     margin: 0 auto;
     padding: 10px;
+    align-items: center;
+}
+.serch p {
+    font-weight: bold;
 }
 .serch input[type="text"] {
     margin: 0;
     font-size: 8px;
     color: gray;
     padding: 5px;
-    
+}
+.serch_buttun {
+    display: flex;
+    background-color: red;
+    align-items: center;
+    border: solid 1px gray;
+}
+.serch_buttun img {
+    display: block;
+    width: 60%;
+    height: 60%;
 }
 .serch input[type="submit"] {
     background-color: red;
+    border: none;
     color: white;
-    padding-left: 30px;/*画像を入れるスペース*/
+    padding-left: 5px;/*画像とのスペース*/
     float: left;
 }
 /*メインの記述*/
 .container {
+    width: 1200px;
+    margin: 0 auto;
     display: flex;
 }
-h2 {
+main {
+    margin-right: 0;
+    margin-left: 40px;
+}
+p {
+    font-family: YuGothic;
+}
+h2:not(.writer_recommendation-header) {/*.writer_recommendation-headerのh2は親要素にボーダーを引かないといけないから（途切れる）それに関しては直接プロパティを書いた*/
     font-size: 24px;
+    border-bottom: solid 1px red;
+    font-family: YuGothic;
+}
+h3 {
+    font-size: 18px;
+    font-family: YuGothic;
+}
+h4 {
+    font-size: 16px;
+    font-family: YuGothic;
+}
+.container h5 {/*リセットCSSを適用しているがh5がboldになるからクラス指定して点数を上げてboldが適用されないように書いている*/
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 20px;
+    font-family: Meiryo;
 }
 .recomended_area,.hot_spot,.genre,.condition,.writer_recommendation,.user_review {
-    width: 800px;
-    margin: 10px 50px 0px 40px;
+    width: 760px;
+    margin: 10px 50px 0px 0px;/*ここでは左に余白を作ってない。アイコンが離れるから*/
+}
+.display_icon-left {/*見出しの横のアイコンを左に表示するためのクラス。"おすすめのエリア"などの各コンテンツを包含している。*/
+    display: flex;
+    margin: 20px 0px 30px;
+}
+.display_icon-left>img {
+    display: block;
+    height: 100%;
+/*アイコンの左に要件で指定された40pxの余白を作ってる。でもこれだけやとdisplay_icon-leftクラスのすべてのimgに余白が生まれるから">"を追加して子要素だけをセレクトする。*/
 }
 /*おすすめのエリア*/
+.city {
+    font-size: 0px;/*謎の余白を消すために親のクラスに適用している。*/
+}
 .recomended_area a {
     display: inline-block;
-    width: 60px;
-    height: 25px;
+    font-size: 12px;
+    width: 50px;
+    height: 20px;
     text-align: center;
     text-decoration: none;
     color: black;
     border: solid 1px #80808052;
-    margin: 5px;/*左右5pxずつマージンで計10pxの余白*/
-    padding-top: 5px;
+    margin: 10px 10px 0px 0px;
+    padding-top: 10px;
 }
 /*ホットなスポット*/
+.town {
+    display: flex;
+    line-height: 20px;
+    width: 100%;
+}
+.display_content-left {
+    width: 60%;
+}
+.display_content-right {
+    width: 40%;
+}
+.town li {
+    list-style-type: none;
+}
 .town a {
     text-decoration: none;
     color: black;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 .town a:before {/*擬似要素"要素の直前に対する指定*/
     content: ">";
@@ -220,6 +300,75 @@ h2 {
     border: solid 1px #80808052;
     margin: 10px 10px 0px 0px;
 }
+/*ライターのおすすめ*/
+.writer_recommendation-header {
+    display: flex;
+    border-bottom: solid 1px red;
+    align-items: center;
+}
+.writer_recommendation-header h2 {
+    margin-right: 20px;
+}
+.writer_recommendation-header h4 {
+    font-weight: normal;
+}
+.writer_recommendation-bottom {
+    display: flex;
+}
+.writer_recommendation-bottom img {
+    padding-left: 20px;
+}
+.left_food {
+    width: 440px;
+    padding: 10px;
+    border: solid 1px #80808052;
+    margin: 10px 10px 0px 0px;
+}
+.left_food h3,.right_food h3 {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+.right_food {
+    width: 440px;
+    padding: 10px;
+    border: solid 1px #80808052;
+    margin: 10px 0px 0px 10px;
+}
+/*ユーザーレビュー*/
+.user_review-bottom {
+    display: flex;
+}
+.left_review {
+    width: 440px;
+    padding: 10px;
+    border: solid 1px #80808052;
+    margin-right: 20px;
+}
+.right_review {
+    width: 440px;
+    padding: 10px;
+    border: solid 1px #80808052;
+}
+.left_user-infomation,.right_user-infomation {
+    display: flex;
+    border-bottom: solid 1px #80808052;
+}
+.reviewer_profile {
+    margin-left: 10px;
+}
+.review_contents h3 {
+    padding: 20px 0;
+}
+.review_images {
+    display: flex;
+}
+.review_images img:first-child {
+    margin-top: 30px;
+}
+.review_images img:last-child {
+    margin: 30px 0px 0px 10px;
+}
 /*右側のコンテンツ*/
 .right_bar {
     width: 270px;
@@ -230,14 +379,15 @@ h2 {
     border: 1px solid gray;
     margin-top: 20px
 }
-.user_infomation {
+.user_infomation {/*アイコンを含んだユーザーの情報*/
     background-color: white;
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
 }
-.user_profile {
+.user_profile {/*ニックネームと性別・住所*/
     width: 130px;
+    margin-left: 10px;
     float: left;
 }
 .user_profile p:first-child {
@@ -262,4 +412,25 @@ h2 {
 }
 .banner img {
     margin-top: 20px;
+}
+.footer_menu {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    border-top: solid 2px #80808033;
+}
+.footer_menu ul {
+    display: flex;
+    list-style: none;
+}
+.footer_menu a {
+    text-decoration: none;
+    margin-right: 40px;
+    color: black;
+}
+.copy_right {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #dcd5d5;
 }
